@@ -13,7 +13,7 @@ Open/close tags: `_ct(element, attrs, shouldReturn, autoEscape)`
 
 Self-closing tag: `_ctc(element, attrs, shouldReturn, autoEscape)`
 
-#### Simple Element
+### Simple Element
 
 ```php
 <?php
@@ -22,14 +22,14 @@ _ct('div');
 _ct();
 ?>
 ```
-produces
+prints:
 ```html
 <div>
   Hello World
 </div>
 ```
 
-#### Adding attributes
+### Adding attributes
 
 ```php
 <?php
@@ -38,7 +38,7 @@ _ct('div', array('id' => 'example', 'class' => 'col-12 main-wrapper'));
 _ct();
 ?>
 ```
-produces
+prints:
 ```html
 <div id="example" class="col-12 main-wrapper">
   Hello World
@@ -46,7 +46,7 @@ produces
 ```
 Note that this integrates with Wordpress `esc_attr()`` automatically, so all attribute values are automatically escaped.
 
-#### Return markup as a string
+### Return markup as a string
 
 Pass `false` as the third argument to `return` instead of `echo`ing automatically.
 
@@ -60,7 +60,7 @@ $html .= _ct(false, array(), false);                      // '</div>'
 ?>
 ```
 
-#### Manually escaping attributes
+### Manually escaping attributes
 
 The fourth argument is a boolean that turns on/off the automatic escaping of attributes, useful for when you want to not escape certain attribute values, or use a different escaping function. Note that you'll need to manually escape every attribute with this turned off.
 ```php
@@ -76,14 +76,14 @@ _ct('a', $attrs, true, false);
 _ct();
 ?>
 ```
-produces:
+prints:
 ```html
 <a href="/page1" id="example" onclick="alert('Clicked!');">
   Hello World
 </a>
 ```
 
-#### Self-closing tags
+### Self-closing tags
 
 For tags like `img`, use `_ctc()`:
 ```php
@@ -96,7 +96,7 @@ prints:
 <img src="http://mysite.com/images/img.jpg"/>
 ```
 
-#### Nesting
+### Nesting
 
 The `_ct()` function uses a static queue variable to keep track of open/close tags, so feel free to nest at any level.
 
@@ -123,7 +123,7 @@ _ct('a', $linkAttrs, true, false);
 _ct();
 ?>
 ```
-
+prints:
 ```html
 <a href="https://example.com/getstarted" id="get-started-link">
   <span class="text-bold">
