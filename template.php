@@ -1,5 +1,4 @@
 <?php
-if(!defined("ABSPATH")) exit; // Exit if accessed directly
 
 if(!function_exists("_ctc")) {
   /**
@@ -9,8 +8,6 @@ if(!function_exists("_ctc")) {
    * @param  boolean $echo        (optional) If true, the resulting tag will be echoed, otherwise it is returned. Defaults to true.
    * @param boolean $esc          True if attributes should be escaped, false if escaping has already been done.
    * @return mixed                void if $echo is true, otherwise a string representation of the element.
-   *
-   * Assumes attr values have already been escaped.
    */
   function _ctc($tag, $attrs = [], $echo = true, $esc = true) {
     $tag = esc_attr($tag);
@@ -33,8 +30,6 @@ if(!function_exists("_ct")) {
    * @param  boolean $echo        (optional) If true, the resulting tag will be echoed, otherwise it is returned. Defaults to true.
    * @param boolean $esc          True if attributes should be escaped, false if escaping has already been done.
    * @return mixed                void if $echo is true, otherwise a string representation of the element.
-   *
-   * Assumes attr values have already been escaped.
    */
   function _ct($tag = false, $attrs = [], $echo = true, $esc = true) {
     // Keeps track of all open html blocks
